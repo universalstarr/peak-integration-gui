@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.peakintegration.PeakIntegrationController">
+   <left>
+      <BorderPane prefHeight="200.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <center>
+            <ListView fx:id="filenamesListView" prefHeight="575.0" prefWidth="178.0" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="plotButton" mnemonicParsing="false" onAction="#onPlotButtonClicked" text="Plot &gt;&gt;" />
+                  <Button fx:id="integrateButton" mnemonicParsing="false" onAction="#onIntegrateButtonClick" text="Integrate" />
+               </children>
+            </VBox>
+         </right>
+         <top>
+            <Button fx:id="openFiles" mnemonicParsing="false" onAction="#onOpenFilesButtonClick" text="Open Files..." BorderPane.alignment="TOP_LEFT" />
+         </top>
+      </BorderPane>
+   </left>
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <LineChart fx:id="lineChart" onMouseClicked="#onLineChartMouseClicked" prefHeight="579.0" prefWidth="650.0">
+              <xAxis>
+                <NumberAxis label="Wavelength (nm)" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Intensity" side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="setLeftButton" mnemonicParsing="false" onAction="#onSetLeftButtonClicked" text="Set Left" />
+                        <TextField fx:id="leftTextField" onKeyTyped="#onLeftTextFieldTextChange" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="setRightButton" mnemonicParsing="false" onAction="#onSetRightButtonClicked" text="Set Right" />
+                        <TextField fx:id="rightTextField" onKeyTyped="#onRightTextFieldTextChange" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tableView" prefHeight="588.0" prefWidth="320.0">
+              <columns>
+                <TableColumn fx:id="tableColumnFilename" prefWidth="60.0" text="filename" />
+                <TableColumn fx:id="tableColumnLower" prefWidth="60.0" text="lower" />
+                  <TableColumn fx:id="tableColumnUpper" prefWidth="60.0" text="upper" />
+                  <TableColumn fx:id="tableColumnSeconds" prefWidth="60.0" text="seconds" />
+                  <TableColumn fx:id="tableColumnPeakArea" text="peak area" />
+              </columns>
+            </TableView>
+            <Button fx:id="saveAsButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSaveAsButtonClicked" text="Save As..." />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

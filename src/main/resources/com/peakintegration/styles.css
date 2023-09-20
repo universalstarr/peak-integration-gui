@@ -1,0 +1,23 @@
+.root {
+    /*This applies styling for the root node*/
+    -fx-background-color: linear-gradient(
+        from 0% 0% to 100% 200%,
+        repeat,
+        #fbeee6 0%,
+        #cde0c9 50%
+    );
+    -fx-font-family: "Lucida Console";
+}
+
+.button {
+    -fx-font-family: "Arial";
+    -fx-padding: 5;
+}
+
+.list-view {
+    -fx-font-family: "Sans";
+}
+
+#saveAsButton {
+    -fx-background-color: #ff69b4;
+}
